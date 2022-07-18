@@ -1,0 +1,8 @@
+.DS_Store
+.env
+node_modules
+bundle.js
+*.map
+*.pem
+hack-reactor-global.code-workspace
+package-lock.json
