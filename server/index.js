@@ -19,6 +19,15 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 
+
+
+app.listen(process.env.PORT, () => {
+  console.time('-');
+  console.log(`Running at http://localhost:${process.env.PORT}`);
+});
+
+
+
 // app.get('/story', function (req, res) {
 //   console.timeLog('-', `201 ${req.method} ${req.url}`);
 
@@ -101,14 +110,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 //   res.status(404);
 //   res.send();
 // });
-
-
-
-app.listen(process.env.PORT, () => {
-  console.time('-');
-  console.log(`Running at http://localhost:${process.env.PORT}`);
-});
-
 
 // http://localhost:3004/products/:product_id=65631
 // http://localhost:3004/products/:1

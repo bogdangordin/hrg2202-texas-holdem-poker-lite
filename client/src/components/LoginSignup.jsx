@@ -47,7 +47,7 @@ function LoginSignup(props) {
   const clickedLogin = (event) => {
     if (currUserInput === 'Guest' || currUserInput === 'guest') {
       props.setCurrUser(currUserInput);
-      props.setCurrState('story');
+      props.setCurrState('gamelobby');
       return 0;
     }
 
@@ -56,23 +56,8 @@ function LoginSignup(props) {
       return 0;
     }
 
-    axios.get('/login', {
-      params: {
-        username: currUserInput,
-        password: currPassInput
-      }
-    })
-      .then(function (response) {
-
-        console.log(response.data);
-
-      }).catch(function (error) {
-        console.log(error);
-      });
-
-    console.log(`check database if ${currUserInput} with password ${currPassInput} exist in database and show story`)
     props.setCurrUser(currUserInput);
-    props.setCurrState('story');
+    props.setCurrState('gamelobby');
   }
 
 
@@ -91,24 +76,17 @@ function LoginSignup(props) {
       return 0;
     }
 
-    axios.post('/signup', {
-      username: currUserInput,
-      password: currPassInput
-    })
-      .then(function (response) {
-        console.log(response);
-      }).catch(function (error) {
-        console.log(error);
-      });
-
     props.setCurrUser(currUserInput);
-    props.setCurrState('story');
+    props.setCurrState('gamelobby');
   }
-
 
 
   return (
     <section id='LoginSignup'>
+
+      <div>
+        Welcome to Texas Hold'em Lite
+      </div>
 
       <div style={{ margin: '25px' }}>
         <TextField id="username" label="Username" variant="outlined" onChange={(e) => { changeInput(e) }} defaultValue='Guest' />
@@ -134,3 +112,31 @@ function LoginSignup(props) {
 }
 
 export default LoginSignup;
+
+
+
+    // axios.get('/login', {
+    //   params: {
+    //     username: currUserInput,
+    //     password: currPassInput
+    //   }
+    // })
+    //   .then(function (response) {
+
+    //     console.log(response.data);
+
+    //   }).catch(function (error) {
+    //     console.log(error);
+    //   });
+
+    // console.log(`check database if ${currUserInput} with password ${currPassInput} exist in database and show story`)
+
+    // axios.post('/signup', {
+    //   username: currUserInput,
+    //   password: currPassInput
+    // })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   }).catch(function (error) {
+    //     console.log(error);
+    //   });

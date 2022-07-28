@@ -15,8 +15,8 @@ import $ from 'jquery';
 const axios = require('axios');
 var path = require('path');
 
-// import LoginSignup from './LoginSignup.jsx';
-// import Story from './Story.jsx';
+import LoginSignup from './LoginSignup.jsx';
+import GameLobby from './GameLobby.jsx';
 
 
 
@@ -34,7 +34,10 @@ function App() {
 
   return (
     <section id='app'>
-      hello
+      { currState === 'loginsignup' && <LoginSignup setCurrUser={setCurrUser} setCurrState={setCurrState}/> }
+      { currState === 'gamelobby' && <GameLobby currUser={currUser}/> }
+      {/* { currState === 'game' && <Game currUser={currUser}/> } */}
+
     </section>
   )
 }
